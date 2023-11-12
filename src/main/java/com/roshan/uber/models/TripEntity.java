@@ -1,5 +1,6 @@
 package com.roshan.uber.models;
 
+import com.roshan.uber.utils.geocode.Response;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
@@ -26,8 +27,8 @@ public class TripEntity {
     private RiderEntity riderEntity;
 
     @Column(name = "pickup")
-    private String pickup;
+    private Response pickup;
 
     @Column(name = "destination")
-    private String destination;
+    private Response destination;
 }

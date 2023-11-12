@@ -1,5 +1,6 @@
 package com.roshan.uber.dtos;
 
+import com.roshan.uber.utils.geocode.Response;
 import lombok.*;
 
 import java.util.UUID;
@@ -14,6 +15,6 @@ public class TripDto {
     private UUID id;
     private DriverDto driverDto;
     private RiderDto riderDto;
-    private String pickup;
-    private String destination;
+    private Response pickup;
+    private Response destination;
 }
