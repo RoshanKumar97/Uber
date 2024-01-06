@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -14,7 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@ToString
 public class RiderEntity {
     @Id
     @UuidGenerator(style = UuidGenerator.Style.RANDOM)
@@ -32,6 +30,13 @@ public class RiderEntity {
     @Column(name = "mobile", nullable = false)
     private String mobile;
 
-    @OneToMany(mappedBy = "riderEntity", cascade = CascadeType.ALL)
-    private List<TripEntity> tripEntities;
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "email = " + email + ", " +
+                "password = " + password + ", " +
+                "mobile = " + mobile + ")";
+    }
 }

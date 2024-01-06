@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+import static com.roshan.uber.constants.ApplicationConstants.*;
+
 @RestController
-@RequestMapping("driver")
+@RequestMapping(DRIVER)
 public class DriverController {
 
     @Autowired
     private DriverService driverService;
 
-    @PostMapping("add")
+    @PostMapping(ADD)
     public ResponseEntity<DriverDto> addDriver(@RequestBody DriverDto driverDto){
         return ResponseEntity.ok(driverService.addDriver(driverDto));
     }
@@ -30,7 +32,7 @@ public class DriverController {
         return ResponseEntity.ok(driverService.getDriver(id));
     }
 
-    @GetMapping("list")
+    @GetMapping(LIST)
     public ResponseEntity<List<DriverDto>> listDrivers(){
         return ResponseEntity.ok(driverService.listDrivers());
     }

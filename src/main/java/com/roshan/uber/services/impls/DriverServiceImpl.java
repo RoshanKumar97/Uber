@@ -46,4 +46,13 @@ public class DriverServiceImpl implements DriverService {
         return DriverAdaptor.toDto(driverEntity);
     }
 
+    @Override
+    public DriverDto getDriverByMobile(String mobile) {
+        Optional<DriverEntity> driverEntity = driverRepository.findByMobile(mobile);
+        if(driverEntity.isEmpty()){
+            throw new EntityNotFoundException("Driver not found with Id: "+ mobile);
+        }
+        return DriverAdaptor.toDto(driverEntity.get());
+    }
+
 }

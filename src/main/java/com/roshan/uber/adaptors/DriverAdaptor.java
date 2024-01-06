@@ -20,7 +20,6 @@ public class DriverAdaptor {
                 .mobile(driverEntity.getMobile())
                 .driverStatus(driverEntity.getDriverStatus())
                 .carDto(CarAdaptor.toDto(driverEntity.getCarEntity()))
-                .tripDtos(TripAdaptor.toDtos(driverEntity.getTripEntities()))
                 .build();
     }
     public static DriverEntity toEntity(DriverDto driverDto){
@@ -32,7 +31,6 @@ public class DriverAdaptor {
                 .mobile(driverDto.getMobile())
                 .driverStatus(driverDto.getDriverStatus())
                 .carEntity(CarAdaptor.toEntity(driverDto.getCarDto()))
-                .tripEntities(TripAdaptor.toEntity(driverDto.getTripDtos()))
                 .build();
     }
 
@@ -45,7 +43,6 @@ public class DriverAdaptor {
                     .email(driverEntity.getEmail())
                     .password(driverEntity.getPassword())
                     .mobile(driverEntity.getMobile())
-                    .tripDtos(TripAdaptor.toDtos(driverEntity.getTripEntities()))
                     .build());
         }
         return driverDtos;

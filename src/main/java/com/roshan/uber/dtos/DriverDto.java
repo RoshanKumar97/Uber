@@ -1,11 +1,9 @@
 package com.roshan.uber.dtos;
 
 import com.roshan.uber.enums.DriverStatus;
-import com.roshan.uber.services.DriverService;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -28,8 +26,6 @@ public class DriverDto {
 
     @NotBlank(message = "Driver mobile is mandatory")
     private String mobile;
-
-    List<TripDto> tripDtos;
 
     CarDto carDto;
 

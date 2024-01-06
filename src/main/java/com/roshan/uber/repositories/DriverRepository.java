@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface DriverRepository extends JpaRepository<DriverEntity, UUID> {
-    Optional<Object> findByMobile(String mobile);
+    Optional<DriverEntity> findByMobile(String mobile);
 }

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+import static com.roshan.uber.constants.ApplicationConstants.ADD;
+import static com.roshan.uber.constants.ApplicationConstants.LIST;
+
 @RestController
 @RequestMapping("rider")
 public class RiderController {
@@ -17,7 +20,7 @@ public class RiderController {
     @Autowired
     private RiderService riderService;
 
-    @PostMapping("add")
+    @PostMapping(ADD)
     public ResponseEntity<RiderDto> addRider(@RequestBody RiderDto riderDto){
         return ResponseEntity.ok(riderService.addRider(riderDto));
     }
@@ -30,7 +33,7 @@ public class RiderController {
         return ResponseEntity.ok(riderService.getRider(id));
     }
 
-    @GetMapping("list")
+    @GetMapping(LIST)
     public ResponseEntity<List<RiderDto>> listRiders(){
         return ResponseEntity.ok(riderService.listRiders());
     }

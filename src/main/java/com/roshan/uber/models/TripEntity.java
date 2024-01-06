@@ -1,8 +1,10 @@
 package com.roshan.uber.models;
 
 import com.roshan.uber.utils.geocode.Response;
+import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
@@ -26,9 +28,11 @@ public class TripEntity {
     @ManyToOne
     private RiderEntity riderEntity;
 
-    @Column(name = "pickup")
+    @Column(name = "pickup", columnDefinition = "json")
+    @Type(JsonType.class)
     private Response pickup;
 
-    @Column(name = "destination")
+    @Column(name = "destination", columnDefinition = "json")
+    @Type(JsonType.class)
     private Response destination;
 }

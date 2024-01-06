@@ -8,6 +8,7 @@ import com.roshan.uber.repositories.RiderRepository;
 import com.roshan.uber.services.RiderService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,5 +46,14 @@ public class RiderServiceImpl implements RiderService {
         riderEntity = riderRepository.save(riderEntity);
 
         return RiderAdaptor.toDto(riderEntity);
+    }
+
+    @Override
+    public RiderDto getRiderByMobile(String mobile) {
+        if ((riderRepository.findByMobile(mobile)).isEmpty()){
+            throw new UsernameNotFoundException("Rider with the given Mobile does not exist: "+ mobile);
+        }
+        Optional<RiderEntity> riderEntity = riderRepository.findByMobile(mobile);
+        return RiderAdaptor.toDto(riderEntity.get());
     }
 }

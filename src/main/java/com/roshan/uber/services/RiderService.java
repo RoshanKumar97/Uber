@@ -9,4 +9,6 @@ public interface RiderService {
     List<RiderDto> listRiders();
     RiderDto getRider(UUID id);
     RiderDto addRider(RiderDto riderDto);
+
+    RiderDto getRiderByMobile(String email);
 }

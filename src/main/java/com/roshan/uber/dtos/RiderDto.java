@@ -3,7 +3,6 @@ package com.roshan.uber.dtos;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -27,5 +26,4 @@ public class RiderDto {
     @NotBlank(message = "Rider mobile is mandatory")
     private String mobile;
 
-    private List<TripDto> tripDtos;
 }

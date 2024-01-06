@@ -16,7 +16,6 @@ public class RiderAdaptor {
                 .email(riderEntity.getEmail())
                 .password(riderEntity.getPassword())
                 .mobile(riderEntity.getMobile())
-                .tripDtos(TripAdaptor.toDtos(riderEntity.getTripEntities()))
                 .build();
     }
 
@@ -27,7 +26,6 @@ public class RiderAdaptor {
                 .email(riderDto.getEmail())
                 .password(riderDto.getPassword())
                 .mobile(riderDto.getMobile())
-                .tripEntities(TripAdaptor.toEntity(riderDto.getTripDtos()))
                 .build();
     }
 
@@ -40,7 +38,6 @@ public class RiderAdaptor {
                     .email(riderEntity.getEmail())
                     .password(riderEntity.getPassword())
                     .mobile(riderEntity.getMobile())
-                    .tripDtos(TripAdaptor.toDtos(riderEntity.getTripEntities()))
                     .build());
         }
         return riderDtos;
